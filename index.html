@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UnlockTool & Borneo Schematics Premium Accounts</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5LENVMBQL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N5LENVMBQL');
+    </script>
+    
     <style>
         /* Base Styles */
         :root {
@@ -15,6 +25,7 @@
             --light: #f0f8ff;
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
             --card-bg: rgba(10, 10, 30, 0.7);
+            --neon-glow: 0 0 10px rgba(0, 247, 255, 0.7), 0 0 20px rgba(0, 247, 255, 0.5), 0 0 30px rgba(0, 247, 255, 0.3);
         }
         
         * {
@@ -36,10 +47,12 @@
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(0, 247, 255, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(162, 0, 255, 0.05) 0%, transparent 20%);
+            perspective: 1000px;
         }
         
         section {
             padding: 5rem 2rem;
+            position: relative;
         }
         
         .container {
@@ -71,6 +84,42 @@
             color: #ccc;
         }
         
+        /* 3D Background Elements */
+        .bg-cube {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 247, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            transform-style: preserve-3d;
+            animation: float 20s infinite linear;
+            z-index: -1;
+        }
+        
+        .bg-cube:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .bg-cube:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: -5s;
+        }
+        
+        .bg-cube:nth-child(3) {
+            top: 30%;
+            left: 70%;
+            animation-delay: -10s;
+        }
+        
+        .bg-cube:nth-child(4) {
+            top: 80%;
+            left: 10%;
+            animation-delay: -15s;
+        }
+        
         /* Header */
         header {
             background: rgba(5, 5, 16, 0.9);
@@ -81,6 +130,7 @@
             z-index: 100;
             border-bottom: 1px solid rgba(0, 247, 255, 0.2);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
         }
         
         .header-content {
@@ -95,16 +145,24 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: translateZ(20px);
         }
         
         .logo img {
             height: 50px;
             border-radius: 10px;
+            filter: drop-shadow(0 0 10px rgba(0, 247, 255, 0.5));
         }
         
         .logo h1 {
             font-size: 1.5rem;
             margin: 0;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
         }
         
         nav ul {
@@ -120,10 +178,12 @@
             transition: all 0.3s ease;
             position: relative;
             padding: 0.5rem 0;
+            transform-style: preserve-3d;
         }
         
         nav a:hover {
             color: var(--primary);
+            transform: translateZ(10px);
         }
         
         nav a::after {
@@ -150,6 +210,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
         
         .hero::before {
@@ -166,6 +227,7 @@
         .hero-content {
             max-width: 800px;
             animation: fadeIn 1s ease-out;
+            transform-style: preserve-3d;
         }
         
         .hero-banner {
@@ -174,9 +236,16 @@
             margin: 0 auto 2rem;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 247, 255, 0.5);
-            animation: pulse 2s infinite;
+            box-shadow: var(--neon-glow);
+            animation: pulse 2s infinite, float 6s ease-in-out infinite;
             border: 3px solid rgba(0, 247, 255, 0.3);
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-banner:hover {
+            transform: perspective(1000px) rotateX(0deg) translateZ(20px);
         }
         
         .hero-banner img {
@@ -188,12 +257,15 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+            transform: translateZ(30px);
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: #aaa;
+            transform: translateZ(20px);
         }
         
         .countdown {
@@ -202,7 +274,14 @@
             border-radius: 15px;
             margin: 2rem 0;
             border: 1px solid rgba(0, 247, 255, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), var(--neon-glow);
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .countdown:hover {
+            transform: perspective(1000px) rotateY(0deg) translateZ(10px);
         }
         
         .countdown h3 {
@@ -218,6 +297,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
         }
         
         .hero-buttons {
@@ -226,6 +306,7 @@
             gap: 2rem;
             margin-top: 2rem;
             flex-wrap: wrap;
+            transform-style: preserve-3d;
         }
         
         .btn {
@@ -241,32 +322,54 @@
             align-items: center;
             gap: 0.5rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
         }
         
         .btn-primary {
             background: var(--gradient);
             color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), var(--neon-glow);
         }
         
         .btn-secondary {
             background: rgba(10, 10, 30, 0.7);
             color: var(--primary);
             border: 2px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 247, 255, 0.3);
         }
         
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px) translateZ(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), var(--neon-glow);
         }
 
         .btn-free {
             background: linear-gradient(135deg, #00ff88, #00ccff);
             color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 255, 136, 0.5);
         }
         
         /* Products Section */
         .products {
             background: var(--darker);
+            transform-style: preserve-3d;
         }
         
         .products-grid {
@@ -275,20 +378,53 @@
             gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
+            transform-style: preserve-3d;
         }
         
         .product-card {
             background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             border: 1px solid rgba(0, 247, 255, 0.1);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateY(0deg);
+            position: relative;
+            height: 500px;
+        }
+        
+        .product-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .product-card:hover .product-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .product-card-front, .product-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card-back {
+            transform: rotateY(180deg);
+            padding: 2rem;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(10, 10, 30, 0.9), rgba(5, 5, 16, 0.9));
+            border-radius: 15px;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), var(--neon-glow);
             border-color: rgba(0, 247, 255, 0.3);
         }
         
@@ -314,6 +450,9 @@
         
         .product-content {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-content h3 {
@@ -324,6 +463,7 @@
         .price-list {
             list-style: none;
             margin: 1.5rem 0;
+            flex-grow: 1;
         }
         
         .price-list li {
@@ -350,6 +490,7 @@
         
         .test-card:hover {
             border-color: rgba(0, 255, 136, 0.6);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 255, 136, 0.5);
         }
         
         .test-image {
@@ -360,6 +501,7 @@
         /* Gallery Section */
         .gallery {
             text-align: center;
+            transform-style: preserve-3d;
         }
         
         .gallery-grid {
@@ -368,28 +510,47 @@
             gap: 20px;
             justify-content: center;
             margin: 30px 0;
+            transform-style: preserve-3d;
         }
         
-        .gallery img {
+        .gallery-item {
             max-width: 220px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+            position: relative;
+            overflow: hidden;
         }
         
-        .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.3);
+        .gallery-item:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.3), var(--neon-glow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
         
         /* FAQ Section */
         .faq {
             background: var(--darker);
+            transform-style: preserve-3d;
         }
         
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
+            transform-style: preserve-3d;
         }
         
         .faq-item {
@@ -398,6 +559,14 @@
             overflow: hidden;
             background: var(--card-bg);
             border: 1px solid rgba(0, 247, 255, 0.1);
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: perspective(1000px) rotateX(2deg) translateZ(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 247, 255, 0.2);
         }
         
         .faq-question {
@@ -452,11 +621,12 @@
             z-index: 100;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
+            transform-style: preserve-3d;
         }
         
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transform: scale(1.1) translateZ(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(37, 211, 102, 0.5);
         }
         
         .whatsapp-float i {
@@ -470,6 +640,7 @@
             padding: 3rem 2rem;
             text-align: center;
             border-top: 1px solid rgba(0, 247, 255, 0.2);
+            transform-style: preserve-3d;
         }
         
         .footer-content {
@@ -489,10 +660,12 @@
             color: #aaa;
             text-decoration: none;
             transition: color 0.3s ease;
+            transform-style: preserve-3d;
         }
         
         .footer-links a:hover {
             color: var(--primary);
+            transform: translateZ(5px);
         }
         
         .copyright {
@@ -501,16 +674,53 @@
             font-size: 0.9rem;
         }
         
-        /* Animations */
+        /* 3D Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(20px) translateZ(-100px); }
+            to { opacity: 1; transform: translateY(0) translateZ(0); }
         }
         
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(0, 247, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+        
+        @keyframes float-slow {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        /* Parallax Effect */
+        .parallax {
+            transform-style: preserve-3d;
+        }
+        
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .parallax-layer-1 {
+            transform: translateZ(-300px) scale(2);
+        }
+        
+        .parallax-layer-2 {
+            transform: translateZ(-150px) scale(1.5);
+        }
+        
+        .parallax-layer-3 {
+            transform: translateZ(0);
         }
         
         /* Responsive Styles */
@@ -551,7 +761,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .gallery img {
+            .gallery-item {
                 max-width: 100%;
             }
             
@@ -561,10 +771,30 @@
                 width: 50px;
                 height: 50px;
             }
+            
+            /* Disable 3D effects on mobile for performance */
+            .product-card-inner {
+                transform: none !important;
+            }
+            
+            .product-card-front, .product-card-back {
+                position: relative;
+                transform: none;
+            }
+            
+            .product-card-back {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 3D Background Elements -->
+    <div class="bg-cube"></div>
+    <div class="bg-cube"></div>
+    <div class="bg-cube"></div>
+    <div class="bg-cube"></div>
+
     <!-- Header -->
     <header>
         <div class="header-content">
@@ -615,52 +845,96 @@
             <div class="products-grid">
                 <!-- 1h Test Product -->
                 <div class="product-card test-card">
-                    <div class="product-image test-image">
-                        <span>⏱️</span>
-                    </div>
-                    <div class="product-content">
-                        <h3>1h Test</h3>
-                        <p>تجربة مجانية لمدة ساعة واحدة لاختبار الخدمة قبل الشراء</p>
-                        <ul class="price-list">
-                            <li><span>السعر</span> <span>مجاني / تجربة</span></li>
-                        </ul>
-                        <a href="#" class="btn btn-free product-btn" onclick="handleWhatsApp('سلام، بغيت نجرب 1h Test')">جرب الآن</a>
+                    <div class="product-card-inner">
+                        <div class="product-card-front">
+                            <div class="product-image test-image">
+                                <span>⏱️</span>
+                            </div>
+                            <div class="product-content">
+                                <h3>1h Test</h3>
+                                <p>تجربة مجانية لمدة ساعة واحدة لاختبار الخدمة قبل الشراء</p>
+                                <ul class="price-list">
+                                    <li><span>السعر</span> <span>مجاني / تجربة</span></li>
+                                </ul>
+                                <a href="#" class="btn btn-free product-btn" onclick="handleWhatsApp('سلام، بغيت نجرب 1h Test')">جرب الآن</a>
+                            </div>
+                        </div>
+                        <div class="product-card-back">
+                            <h3>مميزات التجربة</h3>
+                            <ul class="price-list">
+                                <li>✅ ساعة كاملة مجانية</li>
+                                <li>✅ جميع الميزات متاحة</li>
+                                <li>✅ دعم فني خلال التجربة</li>
+                                <li>✅ لا حاجة لبطاقة ائتمان</li>
+                            </ul>
+                            <p>جرب الخدمة الآن بدون أي تكاليف!</p>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Product 1 - UnlockTool -->
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="logo (1).png" alt="UnlockTool Premium">
-                    </div>
-                    <div class="product-content">
-                        <h3>UnlockTool Premium</h3>
-                        <p>أقوى أداة لإصلاح وفك قفل الهواتف الذكية والأجهزة اللوحية</p>
-                        <ul class="price-list">
-                            <li><span>3 أشهر</span> <span>200 DH</span></li>
-                            <li><span>6 أشهر</span> <span>350 DH</span></li>
-                            <li><span>1 سنة</span> <span>599 DH</span></li>
-                            <li><span>2 سنوات</span> <span>750 DH</span></li>
-                        </ul>
-                        <a href="#" class="btn btn-primary product-btn" onclick="handleWhatsApp('سلام، بغيت نشري UnlockTool Premium')">اطلب الآن</a>
+                    <div class="product-card-inner">
+                        <div class="product-card-front">
+                            <div class="product-image">
+                                <img src="logo (1).png" alt="UnlockTool Premium">
+                            </div>
+                            <div class="product-content">
+                                <h3>UnlockTool Premium</h3>
+                                <p>أقوى أداة لإصلاح وفك قفل الهواتف الذكية والأجهزة اللوحية</p>
+                                <ul class="price-list">
+                                    <li><span>3 أشهر</span> <span>200 DH</span></li>
+                                    <li><span>6 أشهر</span> <span>350 DH</span></li>
+                                    <li><span>1 سنة</span> <span>599 DH</span></li>
+                                    <li><span>2 سنوات</span> <span>750 DH</span></li>
+                                </ul>
+                                <a href="#" class="btn btn-primary product-btn" onclick="handleWhatsApp('سلام، بغيت نشري UnlockTool Premium')">اطلب الآن</a>
+                            </div>
+                        </div>
+                        <div class="product-card-back">
+                            <h3>مميزات UnlockTool</h3>
+                            <ul class="price-list">
+                                <li>✅ فك قفل جميع الهواتف</li>
+                                <li>✅ إصلاح مشاكل النظام</li>
+                                <li>✅ دعم أكثر من 1000 موديل</li>
+                                <li>✅ تحديثات مستمرة</li>
+                                <li>✅ دعم فني 24/7</li>
+                            </ul>
+                            <p>أقوى أداة متخصصة في إصلاح الهواتف!</p>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Product 2 - Borneo -->
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="borneo shimatic png.jpg" alt="Borneo Schematics">
-                    </div>
-                    <div class="product-content">
-                        <h3>Borneo Schematics</h3>
-                        <p>مخططات إصلاح شاملة لجميع أجهزة الجوال والتابلت</p>
-                        <ul class="price-list">
-                            <li><span>3 أشهر</span> <span>300 DH</span></li>
-                            <li><span>6 أشهر</span> <span>450 DH</span></li>
-                            <li><span>1 سنة</span> <span>699 DH</span></li>
-                            <li><span>2 سنوات</span> <span>850 DH</span></li>
-                        </ul>
-                        <a href="#" class="btn btn-primary product-btn" onclick="handleWhatsApp('سلام، بغيت نشري Borneo Schematics')">اطلب الآن</a>
+                    <div class="product-card-inner">
+                        <div class="product-card-front">
+                            <div class="product-image">
+                                <img src="borneo shimatic png.jpg" alt="Borneo Schematics">
+                            </div>
+                            <div class="product-content">
+                                <h3>Borneo Schematics</h3>
+                                <p>مخططات إصلاح شاملة لجميع أجهزة الجوال والتابلت</p>
+                                <ul class="price-list">
+                                    <li><span>3 أشهر</span> <span>300 DH</span></li>
+                                    <li><span>6 أشهر</span> <span>450 DH</span></li>
+                                    <li><span>1 سنة</span> <span>699 DH</span></li>
+                                    <li><span>2 سنوات</span> <span>850 DH</span></li>
+                                </ul>
+                                <a href="#" class="btn btn-primary product-btn" onclick="handleWhatsApp('سلام، بغيت نشري Borneo Schematics')">اطلب الآن</a>
+                            </div>
+                        </div>
+                        <div class="product-card-back">
+                            <h3>مميزات Borneo Schematics</h3>
+                            <ul class="price-list">
+                                <li>✅ مخططات إصلاح كاملة</li>
+                                <li>✅ دليل استكشاف الأخطاء</li>
+                                <li>✅ مخططات اللوحات الأم</li>
+                                <li>✅ تحديثات أسبوعية</li>
+                                <li>✅ دعم فني متخصص</li>
+                            </ul>
+                            <p>أفضل مصدر لمخططات إصلاح الهواتف!</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -672,13 +946,27 @@
         <div class="container">
             <h2>معرض الصور</h2>
             <div class="gallery-grid">
-                <img src="borneo shimatic png.jpg" alt="Borneo Shimatic">
-                <img src="borneo shimatic png.png" alt="Borneo Shimatic PNG">
-                <img src="logo (1).png" alt="Logo">
-                <img src="unlockoll info (1).png" alt="UnlockTool Info">
-                <img src="unlocktool banner (1).png" alt="UnlockTool Banner">
-                <img src="view 2.png" alt="View 2">
-                <img src="view unlo0cktool (1).png" alt="View UnlockTool">
+                <div class="gallery-item">
+                    <img src="borneo shimatic png.jpg" alt="Borneo Shimatic">
+                </div>
+                <div class="gallery-item">
+                    <img src="borneo shimatic png.png" alt="Borneo Shimatic PNG">
+                </div>
+                <div class="gallery-item">
+                    <img src="logo (1).png" alt="Logo">
+                </div>
+                <div class="gallery-item">
+                    <img src="unlockoll info (1).png" alt="UnlockTool Info">
+                </div>
+                <div class="gallery-item">
+                    <img src="unlocktool banner (1).png" alt="UnlockTool Banner">
+                </div>
+                <div class="gallery-item">
+                    <img src="view 2.png" alt="View 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="view unlo0cktool (1).png" alt="View UnlockTool">
+                </div>
             </div>
         </div>
     </section>
@@ -800,6 +1088,47 @@
             let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
+        
+        // Mouse move 3D effect
+        document.addEventListener('mousemove', (e) => {
+            const heroBanner = document.querySelector('.hero-banner');
+            const countdown = document.querySelector('.countdown');
+            
+            if (heroBanner) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                heroBanner.style.transform = `perspective(1000px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+            
+            if (countdown) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+                countdown.style.transform = `perspective(1000px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+        });
+        
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) translateZ(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for scroll animation
+        document.querySelectorAll('.product-card, .gallery-item, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px) translateZ(-100px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
