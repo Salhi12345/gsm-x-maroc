@@ -314,6 +314,73 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), var(--neon-glow);
         }
         
+        /* Showcase Section */
+        .showcase {
+            background: var(--dark);
+            padding: 4rem 2rem;
+            transform-style: preserve-3d;
+        }
+        
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .showcase-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+        }
+        
+        .showcase-item:hover {
+            transform: translateY(-10px) translateZ(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), var(--neon-glow);
+        }
+        
+        .showcase-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .showcase-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .showcase-item:hover .showcase-overlay {
+            transform: translateY(0);
+        }
+        
+        .showcase-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .showcase-overlay p {
+            color: #ccc;
+            margin: 0;
+        }
+
         /* Products Section */
         .products {
             background: var(--darker);
@@ -614,6 +681,19 @@
                 grid-template-columns: 1fr;
             }
             
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .showcase-item img {
+                height: 250px;
+            }
+            
+            .showcase-overlay {
+                transform: translateY(0);
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7));
+            }
+            
             .whatsapp-float {
                 bottom: 1rem;
                 left: 1rem;
@@ -674,6 +754,29 @@
         </div>
     </section>
 
+    <!-- Showcase Section -->
+    <section class="showcase">
+        <div class="container">
+            <h2>أدوات احترافية لخدمات GSM</h2>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <img src="view unlo0cktool (1).png" alt="UnlockTool Interface - واجهة برنامج فتح الهواتف" loading="lazy">
+                    <div class="showcase-overlay">
+                        <h3>واجهة UnlockTool الاحترافية</h3>
+                        <p>أداة متقدمة لفتح جميع أنواع الهواتف</p>
+                    </div>
+                </div>
+                <div class="showcase-item">
+                    <img src="view 2.png" alt="Borneo Schematics Interface - واجهة مخططات الإصلاح" loading="lazy">
+                    <div class="showcase-overlay">
+                        <h3>مخططات Borneo الدقيقة</h3>
+                        <p>مخططات تفصيلية لإصلاح الهواتف</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="products">
         <div class="container">
@@ -684,7 +787,7 @@
                     <div class="product-card-inner">
                         <div class="product-card-front">
                             <div class="product-image">
-                                <img src="unlocktool banner (1).png" alt="UnlockTool Morocco - فتح الهواتف وإصلاح IMEI" width="500" height="250">
+                                <img src="unlockoll info (1).png" alt="UnlockTool Morocco - فتح الهواتف وإصلاح IMEI" width="500" height="250">
                             </div>
                             <div class="product-content">
                                 <h3>UnlockTool Services - فتح الهواتف</h3>
@@ -720,7 +823,7 @@
                     <div class="product-card-inner">
                         <div class="product-card-front">
                             <div class="product-image">
-                                <img src="view 2.png" alt="Borneo Schematics Morocco - مخططات إصلاح الهواتف" width="500" height="250">
+                                <img src="borneo shimatic png.png" alt="Borneo Schematics Morocco - مخططات إصلاح الهواتف" width="500" height="250">
                             </div>
                             <div class="product-content">
                                 <h3>Borneo Schematics - مخططات الإصلاح</h3>
