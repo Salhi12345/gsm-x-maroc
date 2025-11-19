@@ -134,6 +134,7 @@
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
             --card-bg: rgba(10, 10, 30, 0.7);
             --neon-glow: 0 0 10px rgba(0, 247, 255, 0.7), 0 0 20px rgba(0, 247, 255, 0.5), 0 0 30px rgba(0, 247, 255, 0.3);
+            --popular-gradient: linear-gradient(135deg, #ffd700, #ff6b00);
         }
         
         * {
@@ -371,6 +372,12 @@
             border: 2px solid var(--primary);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 247, 255, 0.3);
         }
+
+        .btn-popular {
+            background: var(--popular-gradient);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.5);
+        }
         
         .btn:hover {
             transform: translateY(-5px) translateZ(10px);
@@ -403,6 +410,26 @@
             transform: perspective(1000px) rotateY(0deg);
             position: relative;
             height: 600px;
+        }
+
+        .product-card.popular {
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            transform: scale(1.02);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--popular-gradient);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 10;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
         }
         
         .product-card-inner {
@@ -482,6 +509,22 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .price-list li.popular-item {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 3px solid #ffd700;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            transform: scale(1.05);
+        }
+
+        .price-list li.popular-item span:last-child {
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 1.2rem;
         }
         
         .price-list li:last-child {
@@ -638,6 +681,12 @@
             70% { box-shadow: 0 0 0 15px rgba(0, 247, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0); }
         }
+
+        @keyframes popularGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+        }
         
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -683,6 +732,10 @@
                 width: 50px;
                 height: 50px;
             }
+
+            .product-card.popular {
+                transform: none;
+            }
             
             /* Disable 3D effects on mobile for performance */
             .product-card-inner {
@@ -723,10 +776,13 @@
         <div class="container hero-content">
             <h1>UnlockTool Maroc - خدمات فتح وإصلاح الهواتف</h1>
             <p class="seo-hero-paragraph">
-                UnlockTool Maroc هيا الخدمة الشاملة لي كتقدم حلول متكاملة لفتح الهواتف وإصلاحها بالمغرب. نستعملو أحدث الأدوات المهنية بحال UnlockTool لفتح الهواتف وإصلاح مشاكل IMEI والشبكات، وBorneo Schematics للمخططات وإصلاح الأعطاب المادية. خدمتنا كاتشمل فتح iPhone, Samsung, Huawei, Xiaomi وجميع الماركات، إصلاح IMEI المسدود، فتح الشبكات، وخدمات الصيانة الشاملة. نقدموا دعم فني 24/7 بأسعار مناسبة وضمان النتائج. كاينين خدماتنا في كازا، الرباط، مراكش، وعموم التراب الوطني. إذا كنت تبحث على خدمات GSM محترفة بالمغرب، خدمات فتح الهواتف، إصلاح IMEI، ولا فتح الشبكات، أنت في المكان الصحيح.
+                UnlockTool Maroc هيا الخدمة الشاملة لي كتقدم حلول متكاملة لفتح الهواتف وإصلاحها بالمغرب. <strong>اشتراك 3 أشهر بـ 200 درهم فقط!</strong> نستعملو أحدث الأدوات المهنية بحال UnlockTool لفتح الهواتف وإصلاح مشاكل IMEI والشبكات، وBorneo Schematics للمخططات وإصلاح الأعطاب المادية. خدمتنا كاتشمل فتح iPhone, Samsung, Huawei, Xiaomi وجميع الماركات، إصلاح IMEI المسدود، فتح الشبكات، وخدمات الصيانة الشاملة. نقدموا دعم فني 24/7 بأسعار مناسبة وضمان النتائج. كاينين خدماتنا في كازا، الرباط، مراكش، وعموم التراب الوطني. إذا كنت تبحث على خدمات GSM محترفة بالمغرب، خدمات فتح الهواتف، إصلاح IMEI، ولا فتح الشبكات، أنت في المكان الصحيح.
             </p>
             
             <div class="hero-buttons">
+                <a href="#services" class="btn btn-popular" onclick="handleWhatsApp('سلام، بغيت نعرف على باقة 3 أشهر UnlockTool بـ 200 درهم')">
+                    <span>🔥 باقة 3 أشهر - 200 درهم</span>
+                </a>
                 <a href="#services" class="btn btn-primary" onclick="handleWhatsApp('سلام، بغيت نعرف على خدمات UnlockTool كاملة')">
                     <span>جميع خدمات UnlockTool</span>
                 </a>
@@ -743,7 +799,8 @@
             <h2>خدمات UnlockTool الشاملة بالمغرب</h2>
             <div class="products-grid">
                 <!-- UnlockTool Service -->
-                <div class="product-card">
+                <div class="product-card popular">
+                    <div class="popular-badge">🔥 الأكثر طلباً</div>
                     <div class="product-card-inner">
                         <div class="product-card-front">
                             <div class="product-image">
@@ -753,11 +810,14 @@
                                 <h3>UnlockTool Services - فتح الهواتف</h3>
                                 <p>خدمات فتح الهواتف وإصلاح IMEI باستخدام UnlockTool المحترف. فتح جميع أنواع الهواتف الذكية بالمغرب.</p>
                                 <ul class="price-list">
-                                    <li><span>3 أشهر</span> <span>200 درهم</span></li>
+                                    <li class="popular-item">
+                                        <span>🔥 3 أشهر - الأكثر طلباً</span> 
+                                        <span>200 درهم</span>
+                                    </li>
                                     <li><span>6 أشهر</span> <span>350 درهم</span></li>
                                     <li><span>سنة كاملة</span> <span>500 درهم</span></li>
                                 </ul>
-                                <a href="#" class="btn btn-primary product-btn" onclick="handleWhatsApp('عندي استفسار على خدمات UnlockTool')">استفسار عن UnlockTool</a>
+                                <a href="#" class="btn btn-popular product-btn" onclick="handleWhatsApp('عندي استفسار على باقة 3 أشهر UnlockTool بـ 200 درهم')">🔥 اطلب باقة 3 أشهر</a>
                             </div>
                         </div>
                         <div class="product-card-back">
@@ -773,7 +833,7 @@
                                 <li>✅ خدمة سريعة 24/7</li>
                             </ul>
                             <p>أفضل أداة لفتح الهواتف بالمغرب!</p>
-                            <a href="#" class="btn btn-primary product-btn" onclick="handleWhatsApp('بغيت نفتح هاتفي باستعمال UnlockTool')">اطلب الخدمة الآن</a>
+                            <a href="#" class="btn btn-popular product-btn" onclick="handleWhatsApp('بغيت نطلب باقة 3 أشهر UnlockTool بـ 200 درهم')">🔥 اطلب باقة 3 أشهر</a>
                         </div>
                     </div>
                 </div>
@@ -908,7 +968,7 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <div class="whatsapp-float" onclick="handleWhatsApp('السلام عليكم، بغيت نعرف على خدمات UnlockTool Maroc')">
+    <div class="whatsapp-float" onclick="handleWhatsApp('السلام عليكم، بغيت نعرف على باقة 3 أشهر UnlockTool بـ 200 درهم')">
         <i>💬</i>
     </div>
 
@@ -961,6 +1021,12 @@
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(el);
         });
+
+        // Add popular glow animation
+        const popularCard = document.querySelector('.product-card.popular');
+        if (popularCard) {
+            popularCard.style.animation = 'popularGlow 2s infinite';
+        }
     </script>
 </body>
 </html>
