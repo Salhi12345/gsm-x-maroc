@@ -54,6 +54,7 @@
             --gradient-hot: linear-gradient(135deg, #ff0000, #ff6b00, #ffd700);
             --gradient-gold: linear-gradient(135deg, #ffd700, #ff6b00);
             --gradient-iptv: linear-gradient(135deg, #ff00cc, #ff3366);
+            --gradient-whatsapp: linear-gradient(135deg, #25D366, #128C7E);
             --card-bg: rgba(10, 10, 30, 0.8);
             --neon-glow: 0 0 20px rgba(0, 247, 255, 0.5);
         }
@@ -82,13 +83,59 @@
             padding: 0 20px;
         }
         
+        /* WhatsApp Top Banner */
+        .whatsapp-banner {
+            background: var(--gradient-whatsapp);
+            padding: 0.8rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            animation: pulse-green 2s infinite;
+        }
+        
+        .whatsapp-banner-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .whatsapp-banner a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-banner a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .whatsapp-banner .phone-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
         /* Header */
         header {
             background: rgba(5, 5, 16, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: sticky;
-            top: 0;
+            top: 50px; /* Adjusted for banner */
             z-index: 1000;
             border-bottom: 2px solid var(--primary);
         }
@@ -142,25 +189,25 @@
             color: var(--primary);
         }
         
-        /* WhatsApp Float */
+        /* WhatsApp Float Button - نسخة مصغرة */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             left: 30px;
-            width: 70px;
-            height: 70px;
+            width: 55px;
+            height: 55px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2rem;
             text-decoration: none;
             box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             animation: float 3s ease-in-out infinite;
             border: 2px solid white;
+            font-size: 1.5rem;
         }
         
         .whatsapp-float:hover {
@@ -170,7 +217,7 @@
         
         .whatsapp-float::after {
             content: '💬';
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
         
         /* Flash Sale */
@@ -543,6 +590,15 @@
             50% { opacity: 0.7; }
         }
         
+        @keyframes pulse-green {
+            0%, 100% { 
+                box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% { 
+                box-shadow: 0 5px 25px rgba(37, 211, 102, 0.7);
+            }
+        }
+        
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -580,18 +636,51 @@
             .whatsapp-float {
                 bottom: 20px;
                 left: 20px;
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
             }
             .hero h1 { font-size: 2rem; }
+            .whatsapp-banner a {
+                font-size: 1.1rem;
+                padding: 0.4rem 1rem;
+            }
+            .whatsapp-banner .phone-number {
+                font-size: 1.2rem;
+            }
+            header {
+                top: 40px; /* Adjusted for smaller banner on mobile */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .whatsapp-banner-content {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .whatsapp-banner .phone-number {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20في%20UnlockTool%20Maroc%20%0A%0Aبغيت%20أستفسر%20عن%20خدمات%20فتح%20الهواتف" 
-       class="whatsapp-float" target="_blank"></a>
+    <!-- WhatsApp Top Banner -->
+    <div class="whatsapp-banner">
+        <div class="container">
+            <div class="whatsapp-banner-content">
+                <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20في%20UnlockTool%20Maroc%20%0A%0Aبغيت%20أستفسر%20عن%20خدمات%20فتح%20الهواتف%20أو%20IPTV" 
+                   target="_blank">
+                    📲 تواصل معنا على الواتساب
+                    <span style="font-size: 1.8rem;">➤</span>
+                </a>
+                <div class="phone-number">+212 688 213 738</div>
+                <div style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                    ⚡ خدمة 24/7 | 🚀 رد فوري
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Header -->
     <header>
@@ -604,6 +693,7 @@
                 <ul>
                     <li><a href="#home" class="active">الرئيسية</a></li>
                     <li><a href="#features">مميزات UnlockTool</a></li>
+                    <li><a href="#how-to-order">كيفية الطلب</a></li>
                     <li><a href="#unlocktool">اشتراكات UnlockTool</a></li>
                     <li><a href="#iptv">📺 IPTV</a></li>
                     <li><a href="#borneo">Borneo</a></li>
@@ -612,6 +702,10 @@
             </nav>
         </div>
     </header>
+
+    <!-- WhatsApp Float Button - نسخة مصغرة -->
+    <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20في%20UnlockTool%20Maroc%20%0A%0Aبغيت%20أستفسر%20عن%20خدمات%20فتح%20الهواتف%20أو%20IPTV" 
+       class="whatsapp-float" target="_blank" aria-label="تواصل عبر الواتساب"></a>
 
     <!-- Flash Sale Banner -->
     <div class="container">
@@ -770,6 +864,125 @@
                 <a href="#unlocktool" class="btn btn-hot" style="padding: 1rem 3rem; font-size: 1.2rem;">
                     ⚡ اشترك في UnlockTool الآن!
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- كيفية الطلب -->
+    <section id="how-to-order" style="background: linear-gradient(135deg, rgba(10, 10, 30, 0.9), rgba(20, 10, 40, 0.9)); padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="background: linear-gradient(135deg, #00ff88, #00f7ff); -webkit-background-clip: text; background-clip: text; color: transparent;">📝 كيفية الطلب والاشتراك</h2>
+                <p>خطوات سهلة ومباشرة للحصول على خدمتنا</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- الخطوة 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #25D366, #128C7E); -webkit-background-clip: text; background-clip: text; color: transparent;">1️⃣</div>
+                    <h3 class="feature-title">اختر الخدمة</h3>
+                    <p class="feature-desc">
+                        اختر الخدمة التي تريدها:<br>
+                        • UnlockTool لفتح الهواتف<br>
+                        • IPTV للبث التلفزيوني<br>
+                        • Borneo للمخططات الفنية
+                    </p>
+                </div>
+                
+                <!-- الخطوة 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #ffd700, #ff6b00); -webkit-background-clip: text; background-clip: text; color: transparent;">2️⃣</div>
+                    <h3 class="feature-title">اتصل بنا</h3>
+                    <p class="feature-desc">
+                        اضغط على زر الواتساب<br>
+                        أو اتصل مباشرة على:<br>
+                        <strong style="color: var(--primary);">+212 688 213 738</strong>
+                    </p>
+                </div>
+                
+                <!-- الخطوة 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #ff00cc, #ff3366); -webkit-background-clip: text; background-clip: text; color: transparent;">3️⃣</div>
+                    <h3 class="feature-title">أرسل المعلومات</h3>
+                    <p class="feature-desc">
+                        أرسل لنا:<br>
+                        • نوع الخدمة المطلوبة<br>
+                        • نوع الهاتف (إن وجد)<br>
+                        • أي معلومات إضافية
+                    </p>
+                </div>
+                
+                <!-- الخطوة 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #a200ff, #00f7ff); -webkit-background-clip: text; background-clip: text; color: transparent;">4️⃣</div>
+                    <h3 class="feature-title">الدفع</h3>
+                    <p class="feature-desc">
+                        الدفع عبر:<br>
+                        • الحوالة البنكية<br>
+                        • أو أي طريقة دفع أخرى<br>
+                        • نرسل لك إيصال الدفع
+                    </p>
+                </div>
+                
+                <!-- الخطوة 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #00f7ff, #00ff88); -webkit-background-clip: text; background-clip: text; color: transparent;">5️⃣</div>
+                    <h3 class="feature-title">استلام الخدمة</h3>
+                    <p class="feature-desc">
+                        نرسل لك:<br>
+                        • بيانات الدخول<br>
+                        • كود التفعيل<br>
+                        • دليل الاستخدام
+                    </p>
+                </div>
+                
+                <!-- الخطوة 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #ff3366, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent;">6️⃣</div>
+                    <h3 class="feature-title">الدعم الفني</h3>
+                    <p class="feature-desc">
+                        خدمة دعم فني 24/7<br>
+                        لحل أي مشكلة<br>
+                        وتقديم المساعدة
+                    </p>
+                </div>
+            </div>
+            
+            <!-- طريقة سريعة للطلب -->
+            <div style="background: rgba(0, 247, 255, 0.1); border-radius: 20px; padding: 2.5rem; margin-top: 3rem; border: 2px solid var(--primary);">
+                <div style="text-align: center;">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">🚀 طريقة سريعة للطلب</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #25D366;">
+                            <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #25D366;">UnlockTool</div>
+                            <div style="color: #aaa;">ارسل: "أريد UnlockTool 3 أشهر"</div>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #ff00cc;">
+                            <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #ff00cc;">IPTV</div>
+                            <div style="color: #aaa;">ارسل: "أريد IPTV سنة كاملة"</div>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #ffd700;">
+                            <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #ffd700;">Borneo</div>
+                            <div style="color: #aaa;">ارسل: "أريد اشتراك Borneo"</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(37, 211, 102, 0.1); padding: 1.5rem; border-radius: 15px; border: 1px dashed #25D366; margin-bottom: 1.5rem;">
+                        <p style="color: #25D366; font-weight: bold; margin-bottom: 0.5rem;">📱 نموذج رسالة جاهزة:</p>
+                        <p style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 10px; font-family: monospace;">
+        أريد خدمة: [اذكر الخدمة]<br>
+        المدة: [3 أشهر/سنة]<br>
+        الهاتف: [نوع الهاتف إن وجد]<br>
+        الاسم: [اسمك]
+                        </p>
+                    </div>
+                    
+                    <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20في%20UnlockTool%20Maroc%20%0A%0Aأريد%20خدمة:%20[اذكر%20الخدمة]%0Aالمدة:%20[3%20أشهر/سنة]%0Aالهاتف:%20[نوع%20الهاتف%20إن%20وجد]%0Aالاسم:%20[اسمك]" 
+                       class="btn btn-primary" style="padding: 1rem 2.5rem;">
+                        📲 اضغط هنا للرسالة الجاهزة
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1086,6 +1299,7 @@
                 <div style="margin: 2rem 0;">
                     <a href="#home" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">الرئيسية</a>
                     <a href="#features" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">مميزات UnlockTool</a>
+                    <a href="#how-to-order" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">كيفية الطلب</a>
                     <a href="#unlocktool" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">اشتراكات UnlockTool</a>
                     <a href="#iptv" style="color: #ff00cc; margin: 0 0.8rem; text-decoration: none; font-weight: bold;">📺 IPTV</a>
                     <a href="#borneo" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">Borneo</a>
@@ -1153,39 +1367,13 @@
             observer.observe(card);
         });
         
-        // WhatsApp Notification
-        function showNotification() {
-            const messages = [
-                "✨ 3 أشخاص يشاهدون العروض الآن!",
-                "⚡ 5 زوار جدد اكتشفوا UnlockTool وIPTV",
-                "📱 اشتراك جديد في UnlockTool تم بيعه",
-                "📺 مشترك جديد في IPTV انضم للخدمة",
-                "⭐ العميل محمد: 'الخدمة ممتازة والسعر رائع!'"
-            ];
-            
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                bottom: 100px;
-                right: 20px;
-                background: linear-gradient(135deg, #25D366, #128C7E);
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 10px;
-                z-index: 999;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                animation: slideIn 0.5s ease;
-                font-weight: bold;
-                max-width: 300px;
-            `;
-            
-            notification.textContent = messages[Math.floor(Math.random() * messages.length)];
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.5s ease';
-                setTimeout(() => notification.remove(), 500);
-            }, 3000);
+        // WhatsApp Banner Click Tracking
+        const whatsappBanner = document.querySelector('.whatsapp-banner a');
+        if (whatsappBanner) {
+            whatsappBanner.addEventListener('click', function() {
+                // يمكن إضافة تتبع التحليلات هنا
+                console.log('تم النقر على بانر الواتساب العلوي');
+            });
         }
         
         // Add animations
@@ -1205,12 +1393,6 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             startTimer();
-            
-            // Show first notification after 2 seconds
-            setTimeout(showNotification, 2000);
-            
-            // Show random notifications every 15-25 seconds
-            setInterval(showNotification, Math.random() * 10000 + 15000);
             
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
