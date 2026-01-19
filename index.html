@@ -4,30 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>🔥 200DH 1 ANS</title>
+    <title>🔥 UnlockTool Maroc | فتح الهواتف وIPTV بالمغرب - من 150 درهم!</title>
     
-    <meta name="description" content="🔥 200DH">
+    <meta name="description" content="🔥 افتح هاتفك المغلق بـ 150 درهم! واشترك في IPTV سنة كاملة بـ 200 درهم فقط! UnlockTool Maroc - الخدمة الأولى بالمغرب.">
     
-    <meta name="keywords" content="200DH">
+    <meta name="keywords" content="فتح هاتف بالمغرب, فتح هاتف 150 درهم, IPTV المغرب, IPTV 200 درهم, فتح ايفون, فتح سامسونج, iptv 4k, unlocktool maroc">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="🔥 فتح هاتفك بـ 150 درهم فقط | UnlockTool المغرب" />
-    <meta property="og:description" content="الخدمة الأكثر طلباً لفتح الهواتف بالمغرب! اشتراك 3 أشهر بـ 150 درهم فقط." />
+    <meta property="og:title" content="🔥 فتح هاتف وIPTV بالمغرب | UnlockTool Maroc" />
+    <meta property="og:description" content="فتح هاتف بـ 150 درهم + IPTV سنة بـ 200 درهم! أفضل الخدمات بالمغرب." />
     <meta property="og:image" content="logo (1).png" />
     <meta property="og:url" content="https://gsm-x-morocco-two.vercel.app/" />
     <meta property="og:type" content="website" />
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "UnlockTool Maroc",
+      "image": "https://gsm-x-morocco-two.vercel.app/logo%20(1).png",
+      "description": "خدمة فتح الهواتف وIPTV بالمغرب - 150 درهم لفتح الهواتف، 200 درهم لIPTV سنة",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Morocco"
+      },
+      "telephone": "+212688213738",
+      "priceRange": "150-400 درهم",
+      "openingHours": "Mo-Su 00:00-23:59",
+      "url": "https://gsm-x-morocco-two.vercel.app/",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "850"
+      }
+    }
+    </script>
     
     <style>
         :root {
             --primary: #00f7ff;
             --secondary: #ff3366;
             --accent: #a200ff;
+            --iptv-color: #ff00cc;
             --dark: #0a0a1a;
             --darker: #050510;
             --light: #f0f8ff;
             --gradient: linear-gradient(135deg, #00f7ff, #a200ff, #ff3366);
             --gradient-hot: linear-gradient(135deg, #ff0000, #ff6b00, #ffd700);
             --gradient-gold: linear-gradient(135deg, #ffd700, #ff6b00);
+            --gradient-iptv: linear-gradient(135deg, #ff00cc, #ff3366);
             --card-bg: rgba(10, 10, 30, 0.8);
             --neon-glow: 0 0 20px rgba(0, 247, 255, 0.5);
         }
@@ -98,7 +124,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
         
@@ -180,7 +206,7 @@
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             background: var(--gradient);
             -webkit-background-clip: text;
             background-clip: text;
@@ -233,12 +259,18 @@
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
         
+        .btn-iptv {
+            background: var(--gradient-iptv);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 0, 204, 0.3);
+        }
+        
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
-        /* UnlockTool Features Section */
+        /* Features Section */
         .features-section {
             padding: 5rem 0;
             background: linear-gradient(180deg, var(--darker) 0%, rgba(5,5,16,0.8) 100%);
@@ -426,6 +458,11 @@
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
         }
         
+        .product-card.iptv-card {
+            border-color: var(--iptv-color);
+            box-shadow: 0 0 30px rgba(255, 0, 204, 0.2);
+        }
+        
         .product-image {
             height: 250px;
             overflow: hidden;
@@ -464,6 +501,11 @@
         .badge-popular {
             background: linear-gradient(135deg, #ffd700, #ff6b00);
             color: black;
+        }
+        
+        .badge-iptv {
+            background: var(--gradient-iptv);
+            color: white;
         }
         
         /* Testimonials */
@@ -542,26 +584,28 @@
                 height: 60px;
                 font-size: 1.5rem;
             }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/212772016185" 
+    <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20في%20UnlockTool%20Maroc%20%0A%0Aبغيت%20أستفسر%20عن%20خدمات%20فتح%20الهواتف" 
        class="whatsapp-float" target="_blank"></a>
 
     <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="logo (1).png" alt="UnlockTool Maroc Logo">
-                <h1>IPTV Maroc</h1>
+                <img src="logo (1).png" alt="UnlockTool Maroc Logo - فتح الهواتف وIPTV المغرب">
+                <h1>UnlockTool Maroc</h1>
             </div>
             <nav>
                 <ul>
                     <li><a href="#home" class="active">الرئيسية</a></li>
                     <li><a href="#features">مميزات UnlockTool</a></li>
-                    <li><a href="#unlocktool">اشتراكات</a></li>
+                    <li><a href="#unlocktool">اشتراكات UnlockTool</a></li>
+                    <li><a href="#iptv">📺 IPTV</a></li>
                     <li><a href="#borneo">Borneo</a></li>
                     <li><a href="#contact">اتصل بنا</a></li>
                 </ul>
@@ -573,7 +617,7 @@
     <div class="container">
         <div class="flash-sale">
             <h3>⚡ عرض خاص لمدة 3 أيام فقط!</h3>
-        
+            <p>اشتراك UnlockTool 3 أشهر بـ 150 درهم + IPTV سنة بـ 200 درهم فقط!</p>
             <div class="timer" id="flashTimer">72:00:00</div>
             <p>🛒 اشتراكات محدودة - أسرع قبل نفاذ العروض!</p>
         </div>
@@ -582,14 +626,23 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-        
-        
+            <h1>فتح هاتفك المغلق بـ 150 درهم + IPTV سنة بـ 200 درهم!</h1>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem;">
+                الخدمة الأكثر طلباً لفتح جميع أنواع الهواتف بالمغرب! 
+                فتح iPhone, Samsung, Huawei, Xiaomi, Oppo, Vivo وجميع الماركات.
+                خدمة 24/7 مع ضمان 100% وسرعة فائقة.
+                <br><br>
+                <span style="color: #ff00cc; font-weight: bold;">🎁 جديد: خدمة IPTV سنة كاملة بـ 200 درهم فقط! خوادم 4K رئيسية.</span>
+            </p>
             
             <div class="hero-buttons">
                 <a href="#unlocktool" class="btn btn-hot">
-                    ⚡  200 درهم
+                    ⚡ UnlockTool 3 أشهر - 150 درهم
                 </a>
-                <a href="https://wa.me/212772016185" 
+                <a href="#iptv" class="btn btn-iptv">
+                    📺 IPTV سنة - 200 درهم
+                </a>
+                <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20%0A%0Aبغيت%20أستفسر%20عن%20UnlockTool%20و%20IPTV" 
                    class="btn btn-primary" target="_blank">
                     📲 تواصل على الواتساب
                 </a>
@@ -604,6 +657,10 @@
                 <div style="text-align: center;">
                     <div style="font-size: 2rem; color: var(--primary); font-weight: bold;">850+</div>
                     <div>عميل راضٍ</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: #ff00cc; font-weight: bold;">200+</div>
+                    <div>مشترك IPTV</div>
                 </div>
                 <div style="text-align: center;">
                     <div style="font-size: 2rem; color: var(--primary); font-weight: bold;">24/7</div>
@@ -711,7 +768,7 @@
             
             <div style="text-align: center; margin-top: 3rem;">
                 <a href="#unlocktool" class="btn btn-hot" style="padding: 1rem 3rem; font-size: 1.2rem;">
-                    ⚡ اشترك الآن واستفد من كل هذه المميزات!
+                    ⚡ اشترك في UnlockTool الآن!
                 </a>
             </div>
         </div>
@@ -727,7 +784,7 @@
                 <div class="product-card popular">
                     <div class="badge badge-hot">الأكثر طلباً</div>
                     <div class="product-image">
-                        <img src="unlocktool banner (1).png" alt="UnlockTool 3 أشهر">
+                        <img src="unlocktool banner (1).png" alt="UnlockTool 3 أشهر فتح الهواتف 150 درهم">
                     </div>
                     <div class="product-content">
                         <h3>اشتراك 3 أشهر</h3>
@@ -742,7 +799,7 @@
                             <li>✅ دعم فني 24/7</li>
                             <li>✅ ضمان 100%</li>
                         </ul>
-                        <a href="https://wa.me/212772016185" 
+                        <a href="https://wa.me/212688213738?text=🔥%20بغيت%20أشترك%20في%20UnlockTool%203%20أشهر%20بـ%20150%20درهم" 
                            class="btn btn-hot" style="width: 100%;">
                             ⚡ اشترك الآن
                         </a>
@@ -752,7 +809,7 @@
                 <!-- 6 Months -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="view unlo0cktool (1).png" alt="UnlockTool 6 أشهر">
+                        <img src="view unlocktool (1).png" alt="UnlockTool 6 أشهر فتح الهواتف 300 درهم">
                     </div>
                     <div class="product-content">
                         <h3>اشتراك 6 أشهر</h3>
@@ -766,10 +823,116 @@
                             <li>✅ تحديثات مجانية</li>
                             <li>✅ دعم فني متميز</li>
                         </ul>
-                        <a href="https://wa.me/212772016185"
+                        <a href="https://wa.me/212688213738?text=🔥%20بغيت%20أشترك%20في%20UnlockTool%206%20أشهر%20بـ%20300%20درهم" 
                            class="btn btn-primary" style="width: 100%;">
                             📲 اطلب الآن
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IPTV Section -->
+    <section id="iptv" style="background: linear-gradient(135deg, rgba(5, 5, 16, 0.9), rgba(30, 5, 30, 0.9)); padding: 4rem 0; border-top: 2px solid #ff00cc; border-bottom: 2px solid #ff00cc;">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="background: var(--gradient-iptv); -webkit-background-clip: text; background-clip: text; color: transparent;">📺 خدمة IPTV المميزة</h2>
+                <p>أفضل خوادم IPTV 4K بجودة فائقة ودون تقطيع - اشتراك سنة كاملة بسعر 200 درهم فقط!</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- IPTV 1 Year -->
+                <div class="product-card iptv-card">
+                    <div class="badge badge-iptv">🔥 عرض خاص</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IPTV 4K سنة كاملة 200 درهم المغرب">
+                    </div>
+                    <div class="product-content">
+                        <h3>🔥 اشتراك IPTV سنة كاملة</h3>
+                        <p>خادم رئيسي 4K بجودة فائقة - 15000+ قناة</p>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem; margin: 1rem 0;">
+                            <span style="font-size: 2.5rem; font-weight: bold; color: #ff00cc;">200 درهم</span>
+                            <span style="text-decoration: line-through; font-size: 1.5rem; color: #aaa;">350 درهم</span>
+                            <span style="background: #ff3366; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold;">
+                                وفر 150 درهم!
+                            </span>
+                        </div>
+                        
+                        <ul style="list-style: none; margin: 1.5rem 0;">
+                            <li style="margin-bottom: 0.8rem;">✅ خادم رئيسي 4K فائق الجودة</li>
+                            <li style="margin-bottom: 0.8rem;">✅ 15000+ قناة عالمية وعربية</li>
+                            <li style="margin-bottom: 0.8rem;">✅ جميع البطولات الرياضية المباشرة</li>
+                            <li style="margin-bottom: 0.8rem;">✅ أفلام ومسلسلات حديثة VIP</li>
+                            <li style="margin-bottom: 0.8rem;">✅ دعم فني 24/7</li>
+                            <li>✅ تحديثات مستمرة</li>
+                        </ul>
+                        
+                        <div style="background: rgba(255, 0, 204, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0; border-right: 4px solid #ff00cc;">
+                            <strong>✨ خادم رئيسي:</strong> 4K سيرفر بدون تقطيع أو توقف
+                        </div>
+                        
+                        <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20%0A%0Aبغيت%20أشترك%20في%20IPTV%20سنة%20كاملة%20بـ%20200%20درهم" 
+                           class="btn btn-iptv" style="width: 100%;">
+                            📺 اشترك في IPTV الآن
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- IPTV Features -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مميزات IPTV 4K المغرب">
+                    </div>
+                    <div class="product-content">
+                        <h3>✨ مميزات IPTV لدينا</h3>
+                        <ul style="list-style: none; margin: 1rem 0;">
+                            <li style="margin-bottom: 0.8rem;">✅ جميع قنوات beIN Sports مجاناً</li>
+                            <li style="margin-bottom: 0.8rem;">✅ قنوات سينما ومسلسلات متجددة</li>
+                            <li style="margin-bottom: 0.8rem;">✅ دليل برامج EPG متكامل</li>
+                            <li style="margin-bottom: 0.8rem;">✅ خدمة VOD لأحدث الأفلام</li>
+                            <li style="margin-bottom: 0.8rem;">✅ عمل على جميع الأجهزة</li>
+                            <li>✅ سرعة خادم 1 جيجابت</li>
+                        </ul>
+                        
+                        <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(0, 247, 255, 0.1); border-radius: 10px;">
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">🔄 طريقة الاشتغال:</h4>
+                            <p style="color: #aaa; font-size: 0.9rem;">
+                                1. اشتراك سنة بـ 200 درهم<br>
+                                2. نرسل لك الرابط وبيانات الدخول<br>
+                                3. تثبيت التطبيق على جهازك<br>
+                                4. استمتع بـ 15000+ قناة
+                            </p>
+                        </div>
+                        
+                        <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20%0A%0Aبغيت%20أعرف%20على%20خدمة%20IPTV%20بالتفصيل" 
+                           class="btn btn-secondary" style="width: 100%;">
+                            📞 استفسر الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IPTV Channels Preview -->
+            <div style="background: rgba(255, 0, 204, 0.1); border-radius: 15px; padding: 2rem; margin-top: 3rem; border: 1px solid rgba(255, 0, 204, 0.3);">
+                <h3 style="text-align: center; color: #ff00cc; margin-bottom: 1.5rem;">📡 قنواتنا المتوفرة</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div style="color: #ff3366; font-weight: bold;">⚽ الرياضية</div>
+                        <div style="font-size: 0.9rem; color: #aaa;">beIN Sports جميع الباقات</div>
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div style="color: #ff3366; font-weight: bold;">🎬 الأفلام</div>
+                        <div style="font-size: 0.9rem; color: #aaa;">MBC, OSN, Netflix محتوى</div>
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div style="color: #ff3366; font-weight: bold;">📺 العربية</div>
+                        <div style="font-size: 0.9rem; color: #aaa;">جميع القنوات المغربية والعربية</div>
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div style="color: #ff3366; font-weight: bold;">🌍 العالمية</div>
+                        <div style="font-size: 0.9rem; color: #aaa;">BBC, CNN, France, España</div>
                     </div>
                 </div>
             </div>
@@ -785,7 +948,7 @@
                 <div class="product-card">
                     <div class="badge badge-popular">للفنيين</div>
                     <div class="product-image">
-                        <img src="borneo shimatic png.png" alt="Borneo Schematics">
+                        <img src="borneo shimatic png.png" alt="Borneo Schematics مخططات إصلاح الهواتف">
                     </div>
                     <div class="product-content">
                         <h3>Borneo Schematics</h3>
@@ -806,7 +969,7 @@
                             </div>
                         </div>
                         
-                        <a href="https://wa.me/212772016185" 
+                        <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20%0A%0Aبغيت%20أشترك%20في%20Borneo%20Schematics" 
                            class="btn btn-primary" style="width: 100%;">
                             🔧 اشترك الآن
                         </a>
@@ -815,7 +978,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="view 2.png" alt="Borneo Schematics View">
+                        <img src="view 2.png" alt="Borneo Schematics واجهة المخططات">
                     </div>
                     <div class="product-content">
                         <h3>مميزات Borneo</h3>
@@ -859,7 +1022,7 @@
                         <strong>فاطمة - الرباط</strong>
                         <span style="color: #ffd700;">⭐⭐⭐⭐⭐</span>
                     </div>
-                    <p>"هاتفي iPhone كان مقفل بالشبكة، UnlockTool فتحوه لي بـ 150 درهم وبسرعة! أنصح بكم بشدة."</p>
+                    <p>"IPTV الخاصتكم رائع! 200 درهم لسنة كاملة مع كل القنوات. شكرا لكم!"</p>
                 </div>
                 
                 <div class="testimonial-card">
@@ -879,17 +1042,28 @@
             <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">📞 اتصل بنا</h2>
             
             <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">📱</div>
-                <h3 style="margin-bottom: 1rem;">UnlockTool Maroc</h3>
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: var(--primary);">🔓</div>
+                        <div style="font-weight: bold;">UnlockTool</div>
+                        <div style="color: var(--primary); font-size: 1.2rem;">150 درهم / 3 أشهر</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: #ff00cc;">📺</div>
+                        <div style="font-weight: bold;">IPTV</div>
+                        <div style="color: #ff00cc; font-size: 1.2rem;">200 درهم / سنة</div>
+                    </div>
+                </div>
+                
                 <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 1rem;">
-                    +212 772016185
+                    +212 688 213 738
                 </p>
                 <p style="margin-bottom: 2rem;">
                     خدمة عملاء 24/7 على الواتساب<br>
                     جميع مدن المغرب
                 </p>
                 
-                <a href="https://wa.me/212772016185"
+                <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20في%20UnlockTool%20Maroc%20%0A%0Aبغيت%20أستفسر%20عن:%0A1%20-%20فتح%20الهواتف%20(150%20درهم)%0A2%20-%20IPTV%20(200%20درهم)%0A3%20-%20Borneo%20Schematics" 
                    class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.2rem;">
                     💬 تواصل على الواتساب الآن
                 </a>
@@ -901,25 +1075,44 @@
     <footer>
         <div class="container">
             <div style="text-align: center;">
-                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-                    <img src="logo (1).png" alt="Logo" style="height: 50px; width: 50px; border-radius: 10px;">
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; align-items: center;">
+                    <img src="logo (1).png" alt="UnlockTool Maroc Logo" style="height: 50px; width: 50px; border-radius: 10px;">
                     <div>
                         <h3 style="color: var(--primary);">UnlockTool Maroc</h3>
-                        <p>الخدمة الأولى لفتح الهواتف بالمغرب</p>
+                        <p>الخدمة الأولى لفتح الهواتف وIPTV بالمغرب</p>
                     </div>
                 </div>
                 
                 <div style="margin: 2rem 0;">
-                    <a href="#home" style="color: #aaa; margin: 0 1rem; text-decoration: none;">الرئيسية</a>
-                    <a href="#features" style="color: #aaa; margin: 0 1rem; text-decoration: none;">المميزات</a>
-                    <a href="#unlocktool" style="color: #aaa; margin: 0 1rem; text-decoration: none;">اشتراكات</a>
-                    <a href="#borneo" style="color: #aaa; margin: 0 1rem; text-decoration: none;">Borneo</a>
-                    <a href="#contact" style="color: #aaa; margin: 0 1rem; text-decoration: none;">اتصل بنا</a>
+                    <a href="#home" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">الرئيسية</a>
+                    <a href="#features" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">مميزات UnlockTool</a>
+                    <a href="#unlocktool" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">اشتراكات UnlockTool</a>
+                    <a href="#iptv" style="color: #ff00cc; margin: 0 0.8rem; text-decoration: none; font-weight: bold;">📺 IPTV</a>
+                    <a href="#borneo" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">Borneo</a>
+                    <a href="#contact" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">اتصل بنا</a>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">💎 خدماتنا الرئيسية:</h4>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                        <div style="text-align: center;">
+                            <div style="color: var(--primary);">🔓 UnlockTool</div>
+                            <div style="font-size: 0.9rem; color: #aaa;">150 درهم / 3 أشهر</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #ff00cc;">📺 IPTV</div>
+                            <div style="font-size: 0.9rem; color: #aaa;">200 درهم / سنة</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #ffd700;">🔧 Borneo</div>
+                            <div style="font-size: 0.9rem; color: #aaa;">150-400 درهم</div>
+                        </div>
+                    </div>
                 </div>
                 
                 <p style="color: #666; margin-top: 2rem;">
                     © 2024 UnlockTool Maroc - جميع الحقوق محفوظة<br>
-                    📞 +212 772016185 | 📍 المغرب
+                    📞 +212 688 213 738 | 📍 المغرب
                 </p>
             </div>
         </div>
@@ -963,10 +1156,11 @@
         // WhatsApp Notification
         function showNotification() {
             const messages = [
-                "✨ 3 أشخاص يشاهدون المميزات الآن!",
-                "⚡ 5 زوار جدد اكتشفوا UnlockTool",
-                "📱 اشتراك جديد تم بيعه",
-                "⭐ العميل محمد: 'المميزات لا تصدق!'"
+                "✨ 3 أشخاص يشاهدون العروض الآن!",
+                "⚡ 5 زوار جدد اكتشفوا UnlockTool وIPTV",
+                "📱 اشتراك جديد في UnlockTool تم بيعه",
+                "📺 مشترك جديد في IPTV انضم للخدمة",
+                "⭐ العميل محمد: 'الخدمة ممتازة والسعر رائع!'"
             ];
             
             const notification = document.createElement('div');
@@ -982,6 +1176,7 @@
                 box-shadow: 0 5px 15px rgba(0,0,0,0.3);
                 animation: slideIn 0.5s ease;
                 font-weight: bold;
+                max-width: 300px;
             `;
             
             notification.textContent = messages[Math.floor(Math.random() * messages.length)];
@@ -1031,8 +1226,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
