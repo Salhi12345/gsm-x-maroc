@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>📺 IPTV المغرب - 200 درهم | خوادم 4K رئيسية | UnlockTool Maroc</title>
+    
+    <meta name="description" content="🔥 اشترك في IPTV بـ 200 درهم فقط! 15000+ قناة 4K، خوادم رئيسية بدون تقطيع. أفضل خدمة IPTV بالمغرب.">
+    
+    <meta name="keywords" content="IPTV المغرب, IPTV 200 درهم, iptv 4k, قنوات bein مجانا, iptv سيرفر رئيسي, iptv خوادم 4k, iptv اشتراك">
+    
+    <!-- نفس الـ CSS الموجود في index.html -->
+    <style>
+        /* نسخ CSS كامل من index.html */
+        :root {
+            --primary: #00f7ff;
+            --secondary: #ff3366;
+            --accent: #a200ff;
+            --iptv-color: #ff00cc;
+            --dark: #0a0a1a;
+            --darker: #050510;
+            --light: #f0f8ff;
+            --gradient: linear-gradient(135deg, #00f7ff, #a200ff, #ff3366);
+            --gradient-hot: linear-gradient(135deg, #ff0000, #ff6b00, #ffd700);
+            --gradient-gold: linear-gradient(135deg, #ffd700, #ff6b00);
+            --gradient-iptv: linear-gradient(135deg, #ff00cc, #ff3366);
+            --gradient-whatsapp: linear-gradient(135deg, #25D366, #128C7E);
+            --card-bg: rgba(10, 10, 30, 0.8);
+            --neon-glow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* WhatsApp Top Banner */
+        .whatsapp-banner {
+            background: var(--gradient-whatsapp);
+            padding: 0.8rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            animation: pulse-green 2s infinite;
+        }
+        
+        .whatsapp-banner-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .whatsapp-banner a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-banner a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .whatsapp-banner .phone-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        /* Header */
+        header {
+            background: rgba(5, 5, 16, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 50px;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: 60px;
+            border-radius: 10px;
+            border: 2px solid var(--primary);
+            box-shadow: var(--neon-glow);
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            background: rgba(0, 247, 255, 0.1);
+            color: var(--primary);
+        }
+        
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+            border: 2px solid white;
+            font-size: 1.5rem;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-float::after {
+            content: '💬';
+            font-size: 1.5rem;
+        }
+        
+        /* Flash Sale */
+        .flash-sale {
+            background: var(--gradient-hot);
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 1rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .flash-sale h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .flash-sale .timer {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            animation: pulse 1s infinite;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 247, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(0, 247, 255, 0.1);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-hot {
+            background: var(--gradient-hot);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-iptv {
+            background: var(--gradient-iptv);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 0, 204, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, var(--darker) 0%, rgba(5,5,16,0.8) 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: var(--neon-glow);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+        
+        .feature-desc {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(0, 247, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--neon-glow);
+        }
+        
+        .product-card.popular {
+            border-color: #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .product-card.iptv-card {
+            border-color: var(--iptv-color);
+            box-shadow: 0 0 30px rgba(255, 0, 204, 0.2);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-content {
+            padding: 2rem;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .badge-hot {
+            background: var(--gradient-hot);
+            color: white;
+        }
+        
+        .badge-popular {
+            background: linear-gradient(135deg, #ffd700, #ff6b00);
+            color: black;
+        }
+        
+        .badge-iptv {
+            background: var(--gradient-iptv);
+            color: white;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 3rem 0;
+            margin-top: 3rem;
+            border-top: 2px solid var(--primary);
+        }
+        
+        /* Animations */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes pulse-green {
+            0%, 100% { 
+                box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% { 
+                box-shadow: 0 5px 25px rgba(37, 211, 102, 0.7);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .header-content { flex-direction: column; }
+            nav ul { justify-content: center; }
+            .hero-buttons { flex-direction: column; }
+            .features-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+            .whatsapp-float {
+                bottom: 20px;
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            .hero h1 { font-size: 2rem; }
+            .whatsapp-banner a {
+                font-size: 1.1rem;
+                padding: 0.4rem 1rem;
+            }
+            .whatsapp-banner .phone-number {
+                font-size: 1.2rem;
+            }
+            header {
+                top: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .whatsapp-banner-content {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .whatsapp-banner .phone-number {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Top Banner -->
+    <div class="whatsapp-banner">
+        <div class="container">
+            <div class="whatsapp-banner-content">
+                <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20في%20UnlockTool%20Maroc%20%0A%0Aبغيت%20أشترك%20في%20IPTV%20بـ%20200%20درهم" 
+                   target="_blank">
+                    📲 اشترك في IPTV الآن
+                    <span style="font-size: 1.8rem;">➤</span>
+                </a>
+                <div class="phone-number">+212 688 213 738</div>
+                <div style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                    ⚡ 15000+ قناة | 🚀 خوادم 4K
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
+                    <img src="logo (1).png" alt="UnlockTool Maroc Logo - فتح الهواتف وIPTV المغرب">
+                    <h1>UnlockTool Maroc</h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">🏠 الرئيسية</a></li>
+                    <li><a href="/unlocktool.html">🔓 UnlockTool</a></li>
+                    <li><a href="/iptv.html" class="active">📺 IPTV</a></li>
+                    <li><a href="/borneo.html">🔧 Borneo</a></li>
+                    <li><a href="#contact">📞 اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20في%20UnlockTool%20Maroc%20%0A%0Aبغيت%20أشترك%20في%20IPTV%20بـ%20200%20درهم" 
+       class="whatsapp-float" target="_blank" aria-label="تواصل عبر الواتساب"></a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 style="background: var(--gradient-iptv); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                📺 IPTV بـ 200 درهم فقط!
+            </h1>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem;">
+                خوادم 4K رئيسية بدون تقطيع - 15000+ قناة تلفزيونية عالمية وعربية
+                بجودة فائقة ودعم فني 24/7
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#subscribe" class="btn btn-iptv">
+                    📺 اشترك الآن - 200 درهم
+                </a>
+                <a href="#channels" class="btn btn-secondary">
+                    📡 شاهد القنوات المتوفرة
+                </a>
+                <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20%0A%0Aبغيت%20أشترك%20في%20IPTV%20بـ%20200%20درهم" 
+                   class="btn btn-primary" target="_blank">
+                    📲 تواصل على الواتساب
+                </a>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: #ff00cc; font-weight: bold;">15000+</div>
+                    <div>قناة تلفزيونية</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: #ff00cc; font-weight: bold;">4K</div>
+                    <div>جودة فائقة</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: #ff00cc; font-weight: bold;">200+</div>
+                    <div>مشترك راضٍ</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: #ff00cc; font-weight: bold;">24/7</div>
+                    <div>دعم فني</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main IPTV Package -->
+    <section id="subscribe" style="background: linear-gradient(135deg, rgba(5, 5, 16, 0.9), rgba(30, 5, 30, 0.9)); padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="background: var(--gradient-iptv); -webkit-background-clip: text; background-clip: text; color: transparent;">🔥 اشتراك IPTV المميز</h2>
+                <p>خوادم 4K رئيسية بجودة فائقة بدون تقطيع أو توقف</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- IPTV Package -->
+                <div class="product-card iptv-card" style="grid-column: span 2;">
+                    <div class="badge badge-iptv">الأكثر طلباً</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="IPTV 4K خوادم رئيسية بالمغرب">
+                    </div>
+                    <div class="product-content">
+                        <h3>🔥 اشتراك IPTV كامل</h3>
+                        <p>خادم رئيسي 4K - جميع القنوات العالمية والعربية</p>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem; margin: 1rem 0;">
+                            <span style="font-size: 3rem; font-weight: bold; color: #ff00cc;">200 درهم</span>
+                            <span style="text-decoration: line-through; font-size: 1.8rem; color: #aaa; opacity: 0.7;">350 درهم</span>
+                            <span style="background: #ff3366; color: white; padding: 0.5rem 1.5rem; border-radius: 25px; font-weight: bold; font-size: 1.1rem;">
+                                وفر 150 درهم!
+                            </span>
+                        </div>
+                        
+                        <div style="background: rgba(255, 0, 204, 0.1); padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0; border-right: 4px solid #ff00cc;">
+                            <h4 style="color: #ff00cc; margin-bottom: 0.8rem;">✨ المميزات:</h4>
+                            <ul style="list-style: none; margin: 0; padding: 0;">
+                                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.5rem;">
+                                    <span style="color: #00ff88;">✓</span>
+                                    <span>خادم رئيسي 4K فائق الجودة</span>
+                                </li>
+                                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.5rem;">
+                                    <span style="color: #00ff88;">✓</span>
+                                    <span>15000+ قناة عالمية وعربية</span>
+                                </li>
+                                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.5rem;">
+                                    <span style="color: #00ff88;">✓</span>
+                                    <span>جميع البطولات الرياضية المباشرة</span>
+                                </li>
+                                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.5rem;">
+                                    <span style="color: #00ff88;">✓</span>
+                                    <span>أفلام ومسلسلات حديثة VIP</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                    <span style="color: #00ff88;">✓</span>
+                                    <span>دعم فني 24/7 وتحديثات مستمرة</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(0, 247, 255, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0; border: 1px dashed var(--primary);">
+                            <p style="color: var(--primary); font-weight: bold; margin-bottom: 0.5rem;">⚡ طريقة العمل:</p>
+                            <p style="color: #aaa; font-size: 0.9rem;">
+                                1. اشترك بـ 200 درهم<br>
+                                2. نرسل لك بيانات الدخول<br>
+                                3. تثبيت التطبيق على جهازك<br>
+                                4. استمتع بـ 15000+ قناة
+                            </p>
+                        </div>
+                        
+                        <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20%0A%0Aبغيت%20أشترك%20في%20IPTV%20بـ%20200%20درهم" 
+                           class="btn btn-iptv" style="width: 100%; padding: 1.2rem; font-size: 1.2rem;">
+                            📺 اشترك في IPTV الآن - 200 درهم
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Channels Section -->
+    <section id="channels" style="background: var(--darker); padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>📡 القنوات المتوفرة</h2>
+                <p>اكتشف مجموعة القنوات المتنوعة التي نقدمها</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Sports -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #ff3366;">⚽</div>
+                    <h3 class="feature-title">القنوات الرياضية</h3>
+                    <ul style="list-style: none; text-align: right; color: #aaa;">
+                        <li>• beIN Sports جميع الباقات</li>
+                        <li>• ESPN, Fox Sports</li>
+                        <li>• قنوات الدوري المغربي</li>
+                        <li>• جميع البطولات الأوروبية</li>
+                        <li>• الدوريات العالمية</li>
+                    </ul>
+                </div>
+                
+                <!-- Movies -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #ff00cc;">🎬</div>
+                    <h3 class="feature-title">قنوات الأفلام</h3>
+                    <ul style="list-style: none; text-align: right; color: #aaa;">
+                        <li>• MBC جميع القنوات</li>
+                        <li>• OSN Movies, Series</li>
+                        <li>• Netflix محتوى حصري</li>
+                        <li>• HBO, Showtime</li>
+                        <li>• قنوات أفلام عالمية</li>
+                    </ul>
+                </div>
+                
+                <!-- Arabic -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #ffd700;">📺</div>
+                    <h3 class="feature-title">القنوات العربية</h3>
+                    <ul style="list-style: none; text-align: right; color: #aaa;">
+                        <li>• جميع القنوات المغربية</li>
+                        <li>• القنوات السعودية</li>
+                        <li>• القنوات المصرية</li>
+                        <li>• قنوات الخليج</li>
+                        <li>• قنوات الأطفال العربية</li>
+                    </ul>
+                </div>
+                
+                <!-- International -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: #00f7ff;">🌍</div>
+                    <h3 class="feature-title">القنوات العالمية</h3>
+                    <ul style="list-style: none; text-align: right; color: #aaa;">
+                        <li>• BBC, CNN, France 24</li>
+                        <li>• Discovery, Nat Geo</li>
+                        <li>• قنوات إسبانية، فرنسية</li>
+                        <li>• قنوات إيطالية، ألمانية</li>
+                        <li>• قنوات تركية، آسيوية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Supported Devices -->
+            <div style="background: rgba(255, 0, 204, 0.1); border-radius: 20px; padding: 2.5rem; margin-top: 3rem; border: 2px solid #ff00cc;">
+                <h3 style="text-align: center; color: #ff00cc; margin-bottom: 1.5rem;">📱 الأجهزة المدعومة</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 2.5rem;">📺</div>
+                        <div style="font-weight: bold; color: #ff00cc;">Smart TV</div>
+                        <div style="font-size: 0.9rem; color: #aaa;">جميع أجهزة التلفاز الذكية</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem;">📱</div>
+                        <div style="font-weight: bold; color: #ff00cc;">الهواتف</div>
+                        <div style="font-size: 0.9rem; color: #aaa;">Android و iOS</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem;">💻</div>
+                        <div style="font-weight: bold; color: #ff00cc;">الكمبيوتر</div>
+                        <div style="font-size: 0.9rem; color: #aaa;">Windows و Mac</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem;">🎮</div>
+                        <div style="font-weight: bold; color: #ff00cc;">الكونسول</div>
+                        <div style="font-size: 0.9rem; color: #aaa;">جميع الأجهزة الأخرى</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Subscribe -->
+    <section style="background: linear-gradient(135deg, rgba(10, 10, 30, 0.9), rgba(20, 10, 40, 0.9)); padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="background: linear-gradient(135deg, #00ff88, #00f7ff); -webkit-background-clip: text; background-clip: text; color: transparent;">📝 كيفية الاشتراك</h2>
+                <p>خطوات سهلة للحصول على خدمة IPTV</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; background: rgba(255, 0, 204, 0.1); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 0, 204, 0.3);">
+                        <div style="font-size: 3rem; color: #ff00cc; margin-bottom: 1rem;">1️⃣</div>
+                        <h3 style="color: #ff00cc; margin-bottom: 0.5rem;">اتصل بنا</h3>
+                        <p style="color: #aaa;">اضغط على زر الواتساب للتواصل</p>
+                    </div>
+                    <div style="text-align: center; background: rgba(255, 0, 204, 0.1); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 0, 204, 0.3);">
+                        <div style="font-size: 3rem; color: #ff00cc; margin-bottom: 1rem;">2️⃣</div>
+                        <h3 style="color: #ff00cc; margin-bottom: 0.5rem;">أرسل الطلب</h3>
+                        <p style="color: #aaa;">ارسل: "أريد اشتراك IPTV"</p>
+                    </div>
+                    <div style="text-align: center; background: rgba(255, 0, 204, 0.1); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 0, 204, 0.3);">
+                        <div style="font-size: 3rem; color: #ff00cc; margin-bottom: 1rem;">3️⃣</div>
+                        <h3 style="color: #ff00cc; margin-bottom: 0.5rem;">استلم الخدمة</h3>
+                        <p style="color: #aaa;">نرسل لك بيانات الدخول فوراً</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20%0A%0Aبغيت%20أشترك%20في%20IPTV%20بـ%20200%20درهم" 
+                       class="btn btn-iptv" style="padding: 1.2rem 3rem; font-size: 1.2rem;">
+                        📲 اضغط هنا للاشتراك الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section style="background: var(--darker); padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">⭐ آراء مشتركي IPTV</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <strong>أحمد - الدار البيضاء</strong>
+                        <span style="color: #ffd700;">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p>"أفضل خدمة IPTV جربتها! 200 درهم فقط وكل القنوات موجودة. الخادم سريع ولا يوجد تقطيع."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <strong>سارة - الرباط</strong>
+                        <span style="color: #ffd700;">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p>"كنت أدفع 400 درهم لخدمة أقل جودة! الآن ب200 درهم لدي كل القنوات التي أحتاجها."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <strong>عمر - مراكش</strong>
+                        <span style="color: #ffd700;">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p>"الدعم الفني رائع! ساعدوني في التثبيت وكانوا متاحين 24/7. شكراً لكم."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>❓ الأسئلة الشائعة</h2>
+                <p>إجابات على الأسئلة الأكثر شيوعاً عن خدمة IPTV</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background: var(--card-bg); padding: 2rem; border-radius: 15px; margin-bottom: 1.5rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem;">🤔 هل الخدمة تعمل على جميع الأجهزة؟</h3>
+                    <p style="color: #aaa;">نعم، تعمل على Smart TV, Android, iOS, Windows, Mac وجميع الأجهزة الأخرى.</p>
+                </div>
+                
+                <div style="background: var(--card-bg); padding: 2rem; border-radius: 15px; margin-bottom: 1.5rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem;">⚡ هل هناك تقطيع في البث؟</h3>
+                    <p style="color: #aaa;">لا، نحن نستخدم خوادم 4K رئيسية بسرعة عالية لتجنب أي تقطيع أو توقف.</p>
+                </div>
+                
+                <div style="background: var(--card-bg); padding: 2rem; border-radius: 15px;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem;">🔧 ماذا عن الدعم الفني؟</h3>
+                    <p style="color: #aaa;">نقدم دعم فني 24/7 عبر الواتساب لحل أي مشكلة تواجهك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="background: linear-gradient(135deg, rgba(255, 0, 204, 0.1), rgba(0, 247, 255, 0.1)); padding: 4rem 0;">
+        <div class="container">
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <h2 style="color: #ff00cc; margin-bottom: 1rem;">📞 اتصل بنا للاشتراك</h2>
+                <p style="font-size: 1.5rem; font-weight: bold; color: white; margin-bottom: 1rem;">
+                    +212 688 213 738
+                </p>
+                <p style="margin-bottom: 2rem; color: #aaa;">
+                    خدمة عملاء 24/7 على الواتساب<br>
+                    اشتراك IPTV بـ 200 درهم فقط
+                </p>
+                
+                <a href="https://wa.me/212688213738?text=🔥%20أهلاً%20بك%20%0A%0Aبغيت%20أشترك%20في%20IPTV%20بـ%20200%20درهم" 
+                   class="btn btn-iptv" style="padding: 1.2rem 3rem; font-size: 1.2rem;">
+                    📺 اشترك في IPTV الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="text-align: center;">
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; align-items: center;">
+                    <img src="logo (1).png" alt="UnlockTool Maroc Logo" style="height: 50px; width: 50px; border-radius: 10px;">
+                    <div>
+                        <h3 style="color: var(--primary);">UnlockTool Maroc</h3>
+                        <p>أفضل خدمة IPTV بالمغرب - خوادم 4K رئيسية</p>
+                    </div>
+                </div>
+                
+                <div style="margin: 2rem 0;">
+                    <a href="/" style="color: #aaa; margin: 0 0.8rem; text-decoration: none;">🏠 الرئيسية</a>
+                    <a href="/unlocktool.html" style="color: var(--primary); margin: 0 0.8rem; text-decoration: none;">🔓 UnlockTool</a>
+                    <a href="/iptv.html" style="color: #ff00cc; margin: 0 0.8rem; text-decoration: none; font-weight: bold;">📺 IPTV</a>
+                    <a href="/borneo.html" style="color: #ffd700; margin: 0 0.8rem; text-decoration: none;">🔧 Borneo</a>
+                </div>
+                
+                <p style="color: #666; margin-top: 2rem;">
+                    © 2024 UnlockTool Maroc - جميع الحقوق محفوظة<br>
+                    📞 +212 688 213 738 | 📍 المغرب
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
