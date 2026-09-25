@@ -1179,9 +1179,12 @@ src="https://www.facebook.com/tr?id=1908519403417406&ev=PageView&noscript=1"/>
                     <textarea id="clientMessage" name="message" placeholder="كتب لينا موديل الهاتف أو شرح مختصر للمشكل..."></textarea>
                 </div>
 
-                <div class="client-consent">بالضغط على زر التواصل، غادي يفتح WhatsApp برسالة فيها المعلومات اللي دخلتي.</div>
-                <button class="client-submit" type="submit">💬 تواصل معنا عبر WhatsApp</button>
-                <div class="client-success" id="clientSuccess">✅ تم تجهيز الرسالة، غادي يتحل WhatsApp دابا.</div>
+                <label class="client-consent" style="display:flex;align-items:flex-start;gap:10px;">
+                    <input id="clientConsent" type="checkbox" required style="margin-top:4px;accent-color:#00f7ff;">
+                    <span>أؤكد أن المعلومات اللي دخلت صحيحة، وأوافق على التواصل معايا بخصوص الطلب.</span>
+                </label>
+                <button class="client-submit" type="submit">📨 إرسال الطلب</button>
+                <div class="client-success" id="clientSuccess">✅ تم تسجيل الطلب بنجاح.</div>
             </form>
         </div>
     </div>
