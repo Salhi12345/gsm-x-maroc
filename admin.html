@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>طلبات العملاء - UnlockTool Maroc</title>
+  <style>
+    :root{color-scheme:dark}
+    body{margin:0;font-family:Arial,sans-serif;background:#070712;color:#fff}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
+    h1{margin:0 0 8px;font-size:28px}
+    .muted{color:#aaa}
+    .card{background:#111124;border:1px solid rgba(0,247,255,.22);border-radius:18px;padding:18px;margin:16px 0}
+    .login{max-width:520px;margin:60px auto}
+    input,button{font:inherit}
+    input[type=password]{width:100%;box-sizing:border-box;padding:13px;border-radius:12px;border:1px solid #334;background:#090915;color:#fff}
+    button,.btn{border:0;border-radius:12px;padding:12px 16px;cursor:pointer;font-weight:800}
+    .primary{background:linear-gradient(135deg,#00f7ff,#a200ff);color:#fff}
+    .wa{background:#25d366;color:#07110a;text-decoration:none;display:inline-block}
+    .copy{background:#24243a;color:#fff}
+    .row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+    .request{border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px;background:#0d0d1c}
+    .line{margin:7px 0;color:#ddd;word-break:break-word}
+    .label{color:#76f7ff;font-weight:800}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .empty{text-align:center;padding:40px;color:#aaa}
+    .error{color:#ff8b8b;margin-top:10px}
+    .topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div id="loginCard" class="card login">
+    <h1>📋 طلبات العملاء</h1>
+    <p class="muted">صفحة خاصة بك لعرض الطلبات من الهاتف أو الحاسوب.</p>
+    <input id="adminKey" type="password" placeholder="دخل ADMIN_KEY">
+    <button id="loginBtn" class="primary" style="width:100%;margin-top:10px">دخول</button>
+    <div id="loginError" class="error"></div>
+  </div>
+
+  <div id="app" style="display:none">
+    <div class="topbar">
+      <div>
+        <h1>📋 طلبات العملاء</h1>
+        <div class="muted">آخر 100 طلب</div>
+      </div>
+      <div>
+        <button id="refreshBtn" class="primary">🔄 تحديث</button>
+        <button id="logoutBtn" class="copy">خروج</button>
+      </div>
+    </div>
+    <div id="status" class="muted" style="margin:12px 0"></div>
+    <div id="requests" class="grid"></div>
+  </div>
+</div>
+
+<script>
+  let adminKey = sessionStorage.getItem('admin_key') || '';
+
+  function normalizePhone(phone){
+    const raw = String(phone || '').replace(/[^\d+]/g,'');
+    if (raw.startsWith('+212')) return raw.slice(1);
+    if (raw.startsWith('212')) return raw;
+    if (raw.startsWith('0')) return '212' + raw.slice(1);
+    return raw;
+  }
+
+  function escapeHtml(value){
+    return String(value ?? '').replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+    }[c]));
+  }
+
+  function formatDate(value){
+    try { return new Date(value).toLocaleString('fr-MA'); }
+    catch { return value || ''; }
+  }
+
+  async function loadRequests(){
+    const status = document.getElementById('status');
+    const container = document.getElementById('requests');
+    status.textContent = '⏳ جاري جلب الطلبات...';
+
+    const response = await fetch('/api/clients', {
+      headers: {'x-admin-key': adminKey},
+      cache: 'no-store'
+    });
+    const data = await response.json().catch(() => ({}));
+
+    if (response.status === 401) {
+      sessionStorage.removeItem('admin_key');
+      adminKey = '';
+      document.getElementById('app').style.display = 'none';
+      document.getElementById('loginCard').style.display = 'block';
+      document.getElementById('loginError').textContent = '🔒 المفتاح غير صحيح أو مازال ما تزادش فـ Vercel.';
+      return;
+    }
+
+    if (!response.ok || !data.ok) {
+      throw new Error(data.error || 'تعذر جلب الطلبات');
+    }
+
+    const items = data.requests || [];
+    status.textContent = items.length ? `✅ ${items.length} طلب/طلبات` : 'ما كاين حتى طلب دابا.';
+
+    container.innerHTML = items.length ? items.map(item => {
+      const phone = normalizePhone(item.phone);
+      const message = [
+        'السلام عليكم،',
+        '',
+        `توصلنا بالطلب ديالك بخصوص: ${item.service}`,
+        `الاسم: ${item.name}`,
+        item.message ? `التفاصيل: ${item.message}` : '',
+        '',
+        'غادي نتواصلو معاك بخصوص الطلب.'
+      ].filter(Boolean).join('\n');
+
+      return `
+        <div class="request">
+          <div class="line"><span class="label">#</span> ${escapeHtml(item.id)}</div>
+          <div class="line"><span class="label">الاسم:</span> ${escapeHtml(item.name)}</div>
+          <div class="line"><span class="label">الهاتف:</span> ${escapeHtml(item.phone)}</div>
+          <div class="line"><span class="label">الخدمة:</span> ${escapeHtml(item.service)}</div>
+          <div class="line"><span class="label">التفاصيل:</span> ${escapeHtml(item.message || '—')}</div>
+          <div class="line"><span class="label">التاريخ:</span> ${escapeHtml(formatDate(item.created_at))}</div>
+          <div class="actions">
+            <button class="copy" data-copy="${escapeHtml(item.phone + ' | ' + item.name + ' | ' + item.service + (item.message ? ' | ' + item.message : ''))}">📋 نسخ المعلومات</button>
+            <a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${phone}?text=${encodeURIComponent(message)}">💬 WhatsApp</a>
+          </div>
+        </div>
+      `;
+    }).join('') : '<div class="empty">ما كاين حتى طلب.</div>';
+
+    container.querySelectorAll('[data-copy]').forEach(button => {
+      button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(button.dataset.copy);
+          button.textContent = '✅ تنسخات';
+          setTimeout(() => button.textContent = '📋 نسخ المعلومات', 1200);
+        } catch {
+          alert(button.dataset.copy);
+        }
+      });
+    });
+  }
+
+  async function enterApp(){
+    if (!adminKey) return;
+    try {
+      await loadRequests();
+      document.getElementById('loginCard').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+    } catch (error) {
+      document.getElementById('loginError').textContent = '❌ ' + error.message;
+      document.getElementById('app').style.display = 'none';
+      document.getElementById('loginCard').style.display = 'block';
+    }
+  }
+
+  document.getElementById('loginBtn').addEventListener('click', () => {
+    adminKey = document.getElementById('adminKey').value.trim();
+    if (!adminKey) return;
+    sessionStorage.setItem('admin_key', adminKey);
+    enterApp();
+  });
+
+  document.getElementById('adminKey').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('loginBtn').click();
+  });
+
+  document.getElementById('refreshBtn').addEventListener('click', loadRequests);
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    sessionStorage.removeItem('admin_key');
+    adminKey = '';
+    location.reload();
+  });
+
+  if (adminKey) enterApp();
+</script>
+</body>
+</html>
