@@ -1086,19 +1086,22 @@ src="https://www.facebook.com/tr?id=1908519403417406&ev=PageView&noscript=1"/>
 
             clientForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
+
                 const name = document.getElementById('clientName').value.trim();
                 const phone = document.getElementById('clientPhone').value.trim();
                 const service = document.getElementById('clientService').value;
                 const message = document.getElementById('clientMessage').value.trim();
+                const consent = document.getElementById('clientConsent').checked;
+                const submitButton = clientForm.querySelector('.client-submit');
 
-                const waText = [
-                    '🔥 طلب جديد - UnlockTool Maroc',
-                    '',
-                    `👤 الاسم: ${name}`,
-                    `📞 الهاتف: ${phone}`,
-                    `🛠️ الخدمة: ${service}`,
-                    message ? `📝 التفاصيل: ${message}` : ''
-                ].filter(Boolean).join('\\n');
+                if (!consent) {
+                    clientSuccess.textContent = '☑️ خاصك تأكد أن المعلومات صحيحة وتوافق على التواصل معاك.';
+                    clientSuccess.classList.add('show');
+                    return;
+                }
+
+                submitButton.disabled = true;
+                submitButton.textContent = '⏳ جاري تسجيل الطلب...';
 
                 try {
                     const saveResponse = await fetch('/api/clients', {
@@ -1107,21 +1110,30 @@ src="https://www.facebook.com/tr?id=1908519403417406&ev=PageView&noscript=1"/>
                         body: JSON.stringify({ name, phone, service, message })
                     });
 
-                    if (!saveResponse.ok) {
-                        console.warn('Client request was not saved to the database.');
+                    const data = await saveResponse.json().catch(() => ({}));
+                    if (!saveResponse.ok || !data.ok) {
+                        throw new Error(data.error || 'Database save failed');
                     }
-                } catch (error) {
-                    console.warn('Database request failed:', error);
-                }
 
-                clientSuccess.classList.add('show');
-                const waUrl = `https://wa.me/212688213738?text=${encodeURIComponent(waText)}`;
-                setTimeout(() => {
-                    window.open(waUrl, '_blank', 'noopener,noreferrer');
-                    clientSuccess.classList.remove('show');
-                    clientForm.reset();
-                    closeClientModal();
-                }, 450);
+                    clientSuccess.textContent = data.id
+                        ? `✅ تم تسجيل الطلب بنجاح. رقم الطلب: #${data.id}. غادي نتواصلو معاك قريباً.`
+                        : '✅ تم تسجيل الطلب بنجاح. غادي نتواصلو معاك قريباً.';
+                    clientSuccess.classList.add('show');
+
+                    setTimeout(() => {
+                        clientSuccess.classList.remove('show');
+                        clientForm.reset();
+                        closeClientModal();
+                        submitButton.disabled = false;
+                        submitButton.textContent = '📨 إرسال الطلب';
+                    }, 2200);
+                } catch (error) {
+                    console.error(error);
+                    clientSuccess.textContent = '❌ وقع مشكل فالتسجيل. عاود المحاولة من فضلك.';
+                    clientSuccess.classList.add('show');
+                    submitButton.disabled = false;
+                    submitButton.textContent = '📨 إرسال الطلب';
+                }
             });
 
             // Show popup shortly after entering the site.
@@ -1138,7 +1150,7 @@ src="https://www.facebook.com/tr?id=1908519403417406&ev=PageView&noscript=1"/>
             <div class="client-modal-head">
                 <span class="client-modal-badge">📲 تواصل معنا</span>
                 <h2 id="clientModalTitle">كيف يمكننا مساعدتك؟</h2>
-                <p>عمر المعلومات ديالك، وغادي نفتحو ليك WhatsApp مباشرة باش نتواصلو معاك.</p>
+                <p>عمر المعلومات ديالك، وغادي يتسجل الطلب عندنا. من بعد غادي نتواصلو معاك يدوياً.</p>
             </div>
 
             <form class="client-form" id="clientContactForm">
