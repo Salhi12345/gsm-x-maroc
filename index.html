@@ -1084,7 +1084,7 @@ src="https://www.facebook.com/tr?id=1908519403417406&ev=PageView&noscript=1"/>
                 if (e.key === 'Escape') closeClientModal();
             });
 
-            clientForm.addEventListener('submit', (e) => {
+            clientForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const name = document.getElementById('clientName').value.trim();
                 const phone = document.getElementById('clientPhone').value.trim();
@@ -1098,7 +1098,21 @@ src="https://www.facebook.com/tr?id=1908519403417406&ev=PageView&noscript=1"/>
                     `📞 الهاتف: ${phone}`,
                     `🛠️ الخدمة: ${service}`,
                     message ? `📝 التفاصيل: ${message}` : ''
-                ].filter(Boolean).join('\n');
+                ].filter(Boolean).join('\\n');
+
+                try {
+                    const saveResponse = await fetch('/api/clients', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, phone, service, message })
+                    });
+
+                    if (!saveResponse.ok) {
+                        console.warn('Client request was not saved to the database.');
+                    }
+                } catch (error) {
+                    console.warn('Database request failed:', error);
+                }
 
                 clientSuccess.classList.add('show');
                 const waUrl = `https://wa.me/212688213738?text=${encodeURIComponent(waText)}`;
