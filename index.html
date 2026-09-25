@@ -610,6 +610,124 @@ src="https://www.facebook.com/tr?id=1908519403417406&ev=PageView&noscript=1"/>
             }
         }
     </style>
+
+<style>
+/* ===== Client Contact Popup ===== */
+.client-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(2,2,12,.78);
+    backdrop-filter:blur(8px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:9999;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .35s ease, visibility .35s ease;
+}
+.client-modal-overlay.show{opacity:1;visibility:visible}
+.client-modal{
+    width:min(560px,100%);
+    max-height:min(92vh,760px);
+    overflow:auto;
+    background:linear-gradient(145deg,rgba(11,11,35,.98),rgba(20,8,35,.98));
+    border:2px solid rgba(0,247,255,.55);
+    border-radius:26px;
+    box-shadow:0 0 45px rgba(0,247,255,.22),0 25px 80px rgba(0,0,0,.5);
+    padding:28px;
+    transform:translateY(28px) scale(.96);
+    transition:transform .45s cubic-bezier(.2,.8,.2,1);
+    position:relative;
+}
+.client-modal-overlay.show .client-modal{transform:translateY(0) scale(1)}
+.client-modal::before{
+    content:'';
+    position:absolute;
+    inset:-1px;
+    border-radius:26px;
+    padding:1px;
+    background:linear-gradient(135deg,#00f7ff,#a200ff,#ff3366);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    pointer-events:none;
+    opacity:.8;
+}
+.client-modal-close{
+    position:absolute;
+    top:12px;
+    left:12px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.07);
+    color:#fff;
+    font-size:22px;
+    cursor:pointer;
+    transition:.25s;
+}
+.client-modal-close:hover{transform:rotate(90deg) scale(1.08);background:rgba(255,51,102,.2)}
+.client-modal-head{text-align:center;margin:0 0 22px}
+.client-modal-badge{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:999px;
+    background:rgba(0,247,255,.1);
+    border:1px solid rgba(0,247,255,.35);
+    color:var(--primary);
+    font-weight:800;
+    margin-bottom:12px;
+}
+.client-modal-head h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:7px;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+.client-modal-head p{color:#aaa}
+.client-form{display:grid;gap:14px}
+.client-field{display:grid;gap:7px;text-align:right}
+.client-field label{font-weight:700;color:#eafcff}
+.client-field input,.client-field select,.client-field textarea{
+    width:100%;
+    border:1px solid rgba(0,247,255,.25);
+    border-radius:14px;
+    padding:13px 14px;
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    outline:none;
+    transition:.25s;
+    font:inherit;
+}
+.client-field input::placeholder,.client-field textarea::placeholder{color:#7f8798}
+.client-field input:focus,.client-field select:focus,.client-field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,247,255,.08)}
+.client-field select option{background:#0a0a1a;color:#fff}
+.client-field textarea{min-height:110px;resize:vertical}
+.client-consent{font-size:.82rem;color:#888;line-height:1.5;text-align:right}
+.client-submit{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    border:none;
+    border-radius:16px;
+    padding:14px 18px;
+    font-weight:900;
+    font-size:1.05rem;
+    cursor:pointer;
+    color:#fff;
+    background:var(--gradient-whatsapp);
+    box-shadow:0 10px 26px rgba(37,211,102,.18);
+    transition:.25s;
+}
+.client-submit:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(37,211,102,.28)}
+.client-success{display:none;text-align:center;padding:12px;color:#9effc8}
+.client-success.show{display:block;animation:fadeInUp .5s ease}
+@media (max-width:480px){
+  .client-modal{padding:22px 16px;border-radius:20px}
+  .client-modal-close{top:8px;left:8px}
+}
+</style>
+
 </head>
 <body>
     <!-- WhatsApp Top Banner -->
@@ -940,6 +1058,107 @@ src="https://www.facebook.com/tr?id=1908519403417406&ev=PageView&noscript=1"/>
         document.addEventListener('DOMContentLoaded', () => {
             startTimer();
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const clientOverlay = document.getElementById('clientModalOverlay');
+            const clientClose = document.getElementById('clientModalClose');
+            const clientForm = document.getElementById('clientContactForm');
+            const clientSuccess = document.getElementById('clientSuccess');
+
+            function openClientModal() {
+                clientOverlay.classList.add('show');
+                clientOverlay.setAttribute('aria-hidden', 'false');
+                setTimeout(() => document.getElementById('clientName')?.focus(), 250);
+            }
+
+            function closeClientModal() {
+                clientOverlay.classList.remove('show');
+                clientOverlay.setAttribute('aria-hidden', 'true');
+            }
+
+            clientClose.addEventListener('click', closeClientModal);
+            clientOverlay.addEventListener('click', (e) => {
+                if (e.target === clientOverlay) closeClientModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeClientModal();
+            });
+
+            clientForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('clientName').value.trim();
+                const phone = document.getElementById('clientPhone').value.trim();
+                const service = document.getElementById('clientService').value;
+                const message = document.getElementById('clientMessage').value.trim();
+
+                const waText = [
+                    '🔥 طلب جديد - UnlockTool Maroc',
+                    '',
+                    `👤 الاسم: ${name}`,
+                    `📞 الهاتف: ${phone}`,
+                    `🛠️ الخدمة: ${service}`,
+                    message ? `📝 التفاصيل: ${message}` : ''
+                ].filter(Boolean).join('\n');
+
+                clientSuccess.classList.add('show');
+                const waUrl = `https://wa.me/212688213738?text=${encodeURIComponent(waText)}`;
+                setTimeout(() => {
+                    window.open(waUrl, '_blank', 'noopener,noreferrer');
+                    clientSuccess.classList.remove('show');
+                    clientForm.reset();
+                    closeClientModal();
+                }, 450);
+            });
+
+            // Show popup shortly after entering the site.
+            setTimeout(openClientModal, 700);
+        });
+
     </script>
+
+
+    <!-- Client Contact Popup -->
+    <div class="client-modal-overlay" id="clientModalOverlay" aria-hidden="true">
+        <div class="client-modal" role="dialog" aria-modal="true" aria-labelledby="clientModalTitle">
+            <button class="client-modal-close" id="clientModalClose" type="button" aria-label="إغلاق">×</button>
+            <div class="client-modal-head">
+                <span class="client-modal-badge">📲 تواصل معنا</span>
+                <h2 id="clientModalTitle">كيف يمكننا مساعدتك؟</h2>
+                <p>عمر المعلومات ديالك، وغادي نفتحو ليك WhatsApp مباشرة باش نتواصلو معاك.</p>
+            </div>
+
+            <form class="client-form" id="clientContactForm">
+                <div class="client-field">
+                    <label for="clientName">الاسم</label>
+                    <input id="clientName" name="name" type="text" placeholder="مثال: Mohamed" required autocomplete="name">
+                </div>
+
+                <div class="client-field">
+                    <label for="clientPhone">رقم الهاتف</label>
+                    <input id="clientPhone" name="phone" type="tel" placeholder="06XXXXXXXX" required autocomplete="tel" inputmode="tel">
+                </div>
+
+                <div class="client-field">
+                    <label for="clientService">شنو باغي؟</label>
+                    <select id="clientService" name="service" required>
+                        <option value="">اختار الخدمة</option>
+                        <option>UnlockTool</option>
+                        <option>Borneo Schematics</option>
+                        <option>IPTV</option>
+                    </select>
+                </div>
+
+                <div class="client-field">
+                    <label for="clientMessage">تفاصيل إضافية (اختياري)</label>
+                    <textarea id="clientMessage" name="message" placeholder="كتب لينا موديل الهاتف أو شرح مختصر للمشكل..."></textarea>
+                </div>
+
+                <div class="client-consent">بالضغط على زر التواصل، غادي يفتح WhatsApp برسالة فيها المعلومات اللي دخلتي.</div>
+                <button class="client-submit" type="submit">💬 تواصل معنا عبر WhatsApp</button>
+                <div class="client-success" id="clientSuccess">✅ تم تجهيز الرسالة، غادي يتحل WhatsApp دابا.</div>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
